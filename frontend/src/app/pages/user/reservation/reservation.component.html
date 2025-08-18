@@ -1,0 +1,35 @@
+<section class="book" id="book">
+    <h1 class="heading">
+        <span>r</span><span>e</span><span>s</span><span>e</span><span>r</span><span>v</span><span>a</span><span>t</span><span>i</span><span>o</span><span>n</span>
+    </h1>
+
+    <div *ngIf="bookings.length > 0; else noBookings" class="row">
+        <div class="box-container">
+            <div class="box" *ngFor="let booking of bookings">
+                <img [src]="'https://localhost:3000/images/' + booking.destination + '.jpg'" alt="{{ booking.destination }}">
+                <div class="content">
+                    <h3>{{ booking.destination }}</h3>
+                    <p><strong>Start date:</strong> {{ booking.startDate }}</p>
+                    <p><strong>End date:</strong> {{ booking.endDate }}</p>
+                    <p><strong>Name:</strong> {{ booking.name }} {{ booking.lastName }}</p>
+                    <p><strong>Phone:</strong> {{ booking.phoneNumber }}</p>
+                    <p><strong>Email:</strong> {{ booking.email }}</p>
+                    <p><strong>Guests:</strong> {{ booking.numberOfGuests }}</p>
+
+                    <div class="stars">
+                        <i class="fas fa-star" *ngFor="let star of [1,2,3,4]"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+
+                    <div class="price"> {{ getPrice(booking.destination) }} </div>
+
+                    <button class="btn" (click)="deleteBooking(booking.id)">Remove reservation</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ng-template #noBookings>
+        <p class="no-bookings">Trenutno nema rezervacija.</p>
+    </ng-template>
+</section>

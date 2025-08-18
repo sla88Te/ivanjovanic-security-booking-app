@@ -1,0 +1,17 @@
+<section>
+    <div class="login-form-container">
+
+        <i class="fas fa-times" id="form-close"></i>
+
+        <form action="">
+            <h3>new destination</h3>
+            <input #destinationsInput type="text" class="box" placeholder="destination">
+            <input #typeInput type="type" class="box" placeholder="type">
+            <input #descriptionInput type="textarea" rows="3" class="box" placeholder="Short Description">
+            <input #priceInput type="text" class="box" placeholder="price">
+            <input type="file" class="box" accept=".jpg" (change)="onFileSelected($event)">
+            <input type="button" class="btn" value="submit"
+                (click)="createDestination(destinationsInput.value, typeInput.value, descriptionInput.value, priceInput.value)">
+        </form>
+    </div>
+</section>

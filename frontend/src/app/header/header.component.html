@@ -1,0 +1,31 @@
+<header>
+
+    <div class="fas fa-bars" id="menue-bar"></div>
+
+    <a href="#" class="logo"><span>t</span>ravel</a>
+
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#services">Services</a>
+        <a href="#footer">Contact</a>
+        <a href="/destinations">Destinations</a>
+        <a href="/user/admin" *ngIf="isAdmin">Admin</a>
+    </nav>
+
+    <div class="user">
+        <a [routerLink]="['/user/reservation']">
+            <h1>{{ userEmail }}</h1>
+        </a>
+    </div>
+
+    <div class="icons">
+        <i class="fas" [ngClass]="{
+          'fa-user': !isLoggedIn,
+          'fa-user-slash': isLoggedIn
+        }" id="login-btn" [routerLink]="isLoggedIn ? null : '/user/login'"
+            (click)="isLoggedIn ? onClickLogout() : null"></i>
+    </div>
+
+
+</header>

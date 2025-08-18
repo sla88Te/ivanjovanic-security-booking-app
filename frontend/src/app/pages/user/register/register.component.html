@@ -1,0 +1,26 @@
+<section>
+    <div class="login-form-container">
+        <i class="fas fa-times" id="form-close"></i>
+        
+
+        <form [formGroup]="form" (ngSubmit)="onSignupButtonClicked()">
+            <h3>register</h3>
+        
+            <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+            <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+        
+            <input type="email" class="box" formControlName="email" placeholder="enter your email">
+            <input type="password" class="box" formControlName="password" placeholder="Enter your password">
+            <div *ngIf="form.get('password')?.errors?.invalidPassword">
+                Password must be at least 8 characters, include a number and a special character.
+            </div>
+            <input type="text" class="box" formControlName="name" placeholder="enter your name">
+            <input type="text" class="box" formControlName="lastName" placeholder="enter your last name">
+            <input type="tel" class="box" formControlName="phoneNumber" placeholder="enter your phone">
+        
+            <button type="submit" class="btn">register</button>
+        </form>
+
+        
+    </div>
+</section>

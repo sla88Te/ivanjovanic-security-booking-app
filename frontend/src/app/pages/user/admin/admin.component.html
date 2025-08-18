@@ -1,0 +1,104 @@
+<section class="reservation">
+
+    <p class="threadinfo caption" *ngIf="bookings.length <= 0">There is no added thread</p>
+
+    <div class="centered-content">
+        <div class="task-manager-container">
+
+            <div class="sidebar">
+                <h1 class="title">
+                    Reservation
+                </h1>
+
+                <div class="list-menu">
+                    <button class="btn" (click)="onclickGetBookings()">Booking</button>
+                    <button class="btn" (click)="onClickDestinations()">Destinations</button>
+
+                </div>
+
+            </div>
+
+
+            <div class="task-list-container">
+                <div *ngIf="bookings">
+                    <div class="top-bar">
+                        <h1 class="title">Info: </h1>
+                    </div>
+
+                    <!-- Task Elements -->
+                    <div *ngIf="showBooking">
+                        <div class="task" *ngFor="let booking of bookings">
+                            <div class="task-text">
+                                <h1> {{ booking.destination }} </h1>
+                                <h1> {{ booking.name }} </h1>
+                                <h1> {{ booking.lastName }} </h1>
+                                <h1> {{ booking.email }} </h1>
+                                <h1> {{ booking.phoneNumber }} </h1>
+                                <h1> {{ booking.numberOfGuests }} </h1>
+                                <h1> {{ booking.startDate }} </h1>
+                                <h1> {{ booking.endDate }} </h1>
+                            </div>
+                            <div class="task-buttons">
+                                <!--
+                      <button class="button" >
+                        <div class="icon">
+                          <i class="fas fa-edit"></i>
+                        </div>
+                      </button>
+          -->
+                                <button class="button" style="margin-left: 10px;" (click)='deleteBooking(booking.id)'>
+                                    <div class="icon">
+                                        <i class="fas fa-trash" ></i>
+                                    </div>
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div *ngIf="showDestination">
+                        <div class="task" *ngFor="let destination of des">
+                            <div class="task-text">
+                                <h1> {{ destination.destinations }} </h1>
+                                <h1>{{ destination.type}} </h1>
+                                <h1> {{ destination.description }} </h1>
+                                <h1> {{ destination.price }} </h1>
+                            </div>
+                            <div class="task-buttons">
+
+                                <button class="button">
+                                    <div class="icon">
+                                        <i class="fas fa-edit"></i>
+                                    </div>
+                                </button>
+
+                                <button class="button is-danger" style="margin-left: 10px;">
+                                    <div class="icon">
+                                        <i class="fas fa-trash" (click)="deleteDestination(destination.id)"></i>
+                                    </div>
+                                </button>
+
+                            </div>
+                        </div>
+                        <h3 class="empty-state-text" *ngIf="destinations.length === 0">No destinations available.</h3>
+                        <button class="btn" (click)="goToNewDestination()">NEW Destinations</button>
+                    </div>
+
+
+
+
+                </div>
+
+
+
+                <div *ngIf="!bookings">
+                    <h3 class="empty-state-text">Please select a list from the sidebar</h3>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</section>
+

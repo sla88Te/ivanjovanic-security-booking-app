@@ -1,0 +1,31 @@
+<section class="packages" id="packages">
+    <h1 class="heading">
+        <span>S</span><span>U</span><span>M</span><span>M</span><span>E</span><span>R</span>
+    </h1>
+
+    <div class="city-banner">
+        <div class="content" data-aos="zoom-in-up" data-aos-delay="300">
+            <span>start your summer</span>
+            <h3>Let's Explore These Summer Destinations</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum voluptatum praesentium amet quibusdam quam
+                officia suscipit odio.</p>
+        </div>
+    </div>
+
+    <div class="box-container" *ngIf="summer.length > 0">
+        <div class="box" *ngFor="let destination of summer">
+            <img [src]="'https://localhost:3000/images/' + destination.destinations + '.jpg'" [alt]="destination.destinations" />
+            <div class="content">
+                <h3><i class="fas fa-map-marker-alt"></i> {{ destination.destinations }}</h3>
+                <p>{{ destination.description }}</p>
+                <div class="stars">
+                    <i class="fas fa-star" *ngFor="let star of [1,2,3,4]"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <div class="price">{{ destination.price }} <span>$120.00</span></div>
+                <a *ngIf="isLoggedIn" [href]="'/destinations/' + destination.id" class="btn">book now</a>
+                <a *ngIf="!isLoggedIn" href="/user/login" class="btn">login</a>
+            </div>
+        </div>
+    </div>
+</section>

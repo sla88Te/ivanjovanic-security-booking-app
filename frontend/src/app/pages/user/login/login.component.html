@@ -1,0 +1,26 @@
+<section>
+    <div class="login-form-container">
+        <i class="fas fa-times" id="form-close"></i>
+
+        <form (ngSubmit)="onLoginButtonClicked()">
+            <h3>Login</h3>
+
+            <input type="email" class="box" id="loginFormEmail" placeholder="Enter your email" [(ngModel)]="email"
+                name="email" required />
+
+            <input type="password" class="box" id="loginFormPassword" placeholder="Enter your password"
+                [(ngModel)]="password" name="password" required />
+
+            <button type="submit" class="btn" [disabled]="loading">Login</button>
+
+            <input type="checkbox" id="remember"  name="rememberMe" />
+            <label for="remember">Remember me</label>
+
+            <p>Forgot your password? <a href="#">Click here</a></p>
+            <p>Don't have an account? <a routerLink="/user/register">Register now</a></p>
+
+            <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+            <div *ngIf="loading" class="loading">Logging in...</div>
+        </form>
+    </div>
+</section>
