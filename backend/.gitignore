@@ -1,0 +1,11 @@
+# Node.js
+node_modules/
+.env
+
+# Angular
+/dist
+/frontend/node_modules
+
+# OS fajlovi
+.DS_Store
+Thumbs.db
