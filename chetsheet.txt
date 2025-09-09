@@ -1,11 +1,1 @@
-mysql -u root -p
-mysql> SHOW DATABASES;
-USE TRAVELAPP;
 
-/*DODAVANJ HAS LOzINKE*/
-pokreni node hash.js
---u delu plainPasswird unesi zeljenu lozinku
-rezultat iz terminala kopiraj i 
-UPDATE users SET password_hash = 'kopirani_hash' WHERE email = 'ivan@example.com';
-
-nakon toga sifra radi
